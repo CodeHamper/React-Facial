@@ -6,6 +6,10 @@ Projeto de reconhecimento facil usando React e Firebase.
 - Cadastro de Face no FireBase
 - Reconhecimento de Face e registro de entrada
 
+# Config Firebase
+
+file src/Config/index.js
+
 ## Start
 
 In the project directory, you can run:

@@ -17,7 +17,7 @@ export default function Home() {
         </p>
         <div className="botoes">
           <button>
-            <a href="#">Contato</a>
+            <a href="/">Contato</a>
           </button>
           <button className="entrar">
             <Link to="/login">Entrar</Link>
