@@ -1,6 +1,6 @@
 # React com reconhecimento facial
 
-Projeto de reconhecimento facil usando React e Firebase.
+Projeto de reconhecimento facial usando React e Firebase.
 
 - Login usando Firebase
 - Cadastro de Face no FireBase
