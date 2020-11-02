@@ -5,15 +5,7 @@ import 'firebase/auth'; // for authentication
 import 'firebase/database'; // for realtime database
 import 'firebase/storage';
 
-var config = {
-  apiKey: 'AIzaSyC3EXcAFSqxyDa1v0hIup4n9tR9webswYY',
-  authDomain: 'teste-36c9a.firebaseapp.com',
-  databaseURL: 'https://teste-36c9a.firebaseio.com',
-  projectId: 'teste-36c9a',
-  storageBucket: 'teste-36c9a.appspot.com',
-  messagingSenderId: '787155361378',
-  appId: '1:787155361378:web:34df9f44009d88844cfb3b',
-};
+import config from '../../Config';
 
 class Firebase {
   constructor() {

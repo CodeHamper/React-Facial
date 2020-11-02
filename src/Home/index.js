@@ -1,10 +1,9 @@
 /* eslint-disable require-jsdoc */
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ParticlesBg from 'particles-bg';
 
-import {Container} from './styles';
-
+import { Container } from './styles';
 
 export default function Home() {
   return (
@@ -18,14 +17,13 @@ export default function Home() {
         </p>
         <div className="botoes">
           <button>
-            <a href="https://ellonew.com/">Contato</a>
+            <a href="#">Contato</a>
           </button>
           <button className="entrar">
             <Link to="/login">Entrar</Link>
           </button>
         </div>
       </div>
-     
     </Container>
   );
 }
