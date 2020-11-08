@@ -27,6 +27,13 @@ service cloud.firestore {
 }
 ```
 
+# Authentication
+
+Autenticar e gerenciar usuários para terem acesso.
+
+1 - Ativar Email/Senha
+2 - Na aba Users, adicionar o usuário para poder entrar no sistema.
+
 ## Start
 
 In the project directory, you can run:
