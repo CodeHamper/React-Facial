@@ -3,12 +3,29 @@
 Projeto de reconhecimento facial usando React e Firebase.
 
 - Login usando Firebase
-- Cadastro de Face no FireBase
-- Reconhecimento de Face e registro de entrada
+- Cadastro de Face no Cloud Firestore
+- Reconhecimento de Face e registro de entrada no Cloud Firestore
 
 # Config Firebase
 
-file src/Config/index.js
+file `src/Config/index.js`
+
+# Cloud Firestore
+
+1 - Criar o banco antes de iniciar o projeto.
+
+2 - Alterar a regras para para poder iniciar o testes.
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write
+    }
+  }
+}
+```
 
 ## Start
 

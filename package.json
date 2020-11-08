@@ -1,9 +1,11 @@
 {
     "name": "react-facil",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "author": {
-        "name": "Carlos Stenzel"
+        "name": "Carlos Stenzel",
+        "email": "carlosstenzel@hotmail.com",
+        "url": "carlosstenzel.com"
     },
     "repository": {
         "url": "https://github.com/CodeHamper/React-Facial"

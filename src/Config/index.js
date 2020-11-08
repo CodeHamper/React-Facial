@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: 'AIzaSyD58b12GjmdeoaBUBvqlS-TXdV2GvnXNnM',
-  authDomain: 'teste-f0355.firebaseapp.com',
-  databaseURL: 'https://teste-f0355.firebaseio.com',
-  projectId: 'teste-f0355',
-  storageBucket: 'teste-f0355.appspot.com',
-  messagingSenderId: '27626642214',
-  appId: '1:27626642214:web:ac0b5872b257f3c5c2ffe7',
+  apiKey: 'AIzaSyBXiqqas6f8wO1u925imc2K2dlHuGryalc',
+  authDomain: 'teste-36082.firebaseapp.com',
+  databaseURL: 'https://teste-36082.firebaseio.com',
+  projectId: 'teste-36082',
+  storageBucket: 'teste-36082.appspot.com',
+  messagingSenderId: '760390208675',
+  appId: '1:760390208675:web:dff0264a0225b42e7e4316',
 };
 
 export default firebaseConfig;

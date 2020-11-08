@@ -39,7 +39,7 @@ class VideoInput extends Component {
     // Create labeled descriptors of member from profile
 
     this.setInputDevice();
-    this.props.firebase.listaAlunos().on('value', (snapshot) => {
+    this.props.firebase.listaPessoas().on('value', (snapshot) => {
       const lista = snapshot.val();
 
       let members = Object.keys(lista);
@@ -213,7 +213,7 @@ class VideoInput extends Component {
                 width: _W,
                 transform: `translate(${_X}px,${_Y}px)`,
                 zIndex: 9999999,
-                marginTop: '-130px'
+                marginTop: '-130px',
               }}
             >
               {!!match && !!match[i] ? (

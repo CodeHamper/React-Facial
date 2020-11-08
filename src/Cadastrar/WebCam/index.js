@@ -29,7 +29,7 @@ class VideoInput extends Component {
       match: null,
       cadas: null,
       verdadeiro: false,
-      nomealuno: '',
+      nomepessoa: '',
       loading: false,
       rosto: false,
     };
@@ -39,11 +39,8 @@ class VideoInput extends Component {
     //Careegando modelos
     await loadModels();
 
-    //this.setInputDevice();
-    //this.startCapture();
-
     //Carregando lista de alunos no banco
-    this.props.firebase.listaAlunos().on('value', (snapshot) => {
+    this.props.firebase.listaPessoas().on('value', (snapshot) => {
       const lista = snapshot.val();
 
       if (lista !== null) {
@@ -107,7 +104,7 @@ class VideoInput extends Component {
           if (match[0]._label && match[0]._label !== 'unknown') {
             this.setState({ verdadeiro: true });
 
-            this.setState({ aluno: match[0]._label });
+            this.setState({ pessoa: match[0]._label });
           } else {
             this.setState({ verdadeiro: false });
           }
@@ -121,7 +118,7 @@ class VideoInput extends Component {
 
   cadastra = async () => {
     if (this.state.verdadeiro) {
-      toast.error('Aluno já cadastrado', {
+      toast.error('Pessoa já cadastrado', {
         position: toast.POSITION.TOP_LEFT,
       });
     } else {
@@ -130,18 +127,18 @@ class VideoInput extends Component {
           position: toast.POSITION.TOP_LEFT,
         });
       } else {
-        if (this.state.nomealuno === '') {
+        if (this.state.nomepessoa === '') {
           toast.error('Preencha um nome', {
             position: toast.POSITION.TOP_LEFT,
           });
         } else {
-          this.props.firebase.alunos().child('alunos/').push({
+          this.props.firebase.pessoas().child('alunos/').push({
             name: this.state.nomealuno,
             descriptors: this.state.descriptors,
           });
 
           toast.success(
-            `Aluno ${this.state.nomealuno} cadastrado com sucesso`,
+            `Aluno ${this.state.nomepessoa} cadastrado com sucesso`,
             {
               position: toast.POSITION.TOP_CENTER,
               onClose: () => this.props.history.push('/panel'),
@@ -166,7 +163,7 @@ class VideoInput extends Component {
   };
 
   render() {
-    const { detections, match, nomealuno } = this.state;
+    const { detections, match, nomepessoa } = this.state;
     // console.log('cadastra', this.props);
 
     let drawBox = null;
@@ -224,21 +221,21 @@ class VideoInput extends Component {
           <div className="intro">
             <h1>Cadastrar rosto para reconhecimento</h1>
             <p>
-              1 - Cadastre no nome completo do aluno <br />
+              1 - Cadastre no nome completo da pessoa <br />
               2 - Foque no rosto do aluno para cadastro, e clique em capiturar.
               <br />
             </p>
           </div>
 
           <div className="controle">
-            <div className="nomealuno">
-              <label>Nome do aluno:</label>
+            <div className="nomepessoa">
+              <label>Nome da pessoa:</label>
               <br />
               <input
                 type="text"
-                placeholder="Digite o nome do aluno"
-                onChange={(e) => this.setState({ nomealuno: e.target.value })}
-                value={nomealuno}
+                placeholder="Jonh"
+                onChange={(e) => this.setState({ nomepessoa: e.target.value })}
+                value={nomepessoa}
               />
             </div>
             <hr />
@@ -259,7 +256,7 @@ class VideoInput extends Component {
               <div className="ladocamera">
                 <p>
                   1 - Olhe para a cåmera <br />
-                  2 - Clique no botão reconher aluno <br />
+                  2 - Clique no botão reconher a pessoa <br />
                 </p>
 
                 {this.state.loading ? (
@@ -268,7 +265,7 @@ class VideoInput extends Component {
                   </div>
                 ) : (
                   <button onClick={this.reconheceraluno}>
-                    RECONHECER ALUNO
+                    RECONHECER Pessoa
                   </button>
                 )}
 
@@ -276,7 +273,7 @@ class VideoInput extends Component {
                 {this.state.rosto ? (
                   this.state.verdadeiro ? (
                     <div className="error">
-                      <p>Rosto já cadastrado. Tente outro aluno.</p>
+                      <p>Rosto já cadastrado. Tente outro.</p>
                     </div>
                   ) : (
                     <>

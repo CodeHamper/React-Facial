@@ -8,7 +8,6 @@ import MenuPanel from '../MenuPanel';
 import ImgAddface from '../assets/addface.jpg';
 import ImgScanface from '../assets/scanface.jpg';
 
-
 const PanelPage = () => (
   <Container>
     <MenuPanel />

@@ -45,8 +45,8 @@ class Firebase {
   doPasswordUpdate = (password) =>
     this.auth.currentUser.updatePassword(password);
 
-  alunos = () => this.db.ref();
-  listaAlunos = () => this.db.ref('alunos');
+  pessoas = () => this.db.ref();
+  listaPessoas = () => this.db.ref('pessoas');
   listaEntradas = () => this.db.ref('entradas');
 }
 
