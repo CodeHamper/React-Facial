@@ -4,29 +4,29 @@ import Image from '../assets/novahome.jpg';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  
+
   height: 100vh;
   align-items: center;
 
   &::after {
-  content: "";
-  background: url(${Image}) no-repeat center center fixed; 
-  opacity: 0.6;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;  
-  background-size: cover; 
-}
+    content: '';
+    background: url(${Image}) no-repeat center center fixed;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+  }
   @media screen and (max-width: 415px) {
     display: inline-block;
   }
 
   .lado {
     width: 50%;
-    background: rgba(107, 164, 252, 0.87);
+    background: rgba(43, 59, 83, 0.87);
     padding: 3%;
     border-radius: 6px;
 
@@ -45,7 +45,7 @@ export const Container = styled.div`
 
     h1 {
       font-size: 2.5em;
-      color: #FFF;
+      color: #fff;
       margin-left: 15%;
       margin-right: 5%;
 
@@ -59,7 +59,7 @@ export const Container = styled.div`
     }
     p {
       font-size: 1.5em;
-      color: #FFF;
+      color: #fff;
       margin-left: 15%;
       margin-right: 5%;
     }

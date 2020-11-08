@@ -8,18 +8,12 @@ import { Container } from './styles';
 export default function Home() {
   return (
     <Container>
-      <ParticlesBg color="#07cff6" type="cobweb" bg={true} />
+      <ParticlesBg color="#1c0bfd" type="cobweb" bg={true} />
       <div className="lado">
         <h1>Reconhecimento facial</h1>
-        <p>
-          Soluções para sua empresa, entre em contato para solicitar acesso para
-          começar a utilizar esta solução.
-        </p>
+        <p>Uma solução para você usar em sua empresa ou projeto</p>
         <div className="botoes">
-          <button>
-            <a href="/">Contato</a>
-          </button>
-          <button className="entrar">
+          <button className="">
             <Link to="/login">Entrar</Link>
           </button>
         </div>
