@@ -10,8 +10,10 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import { loadModels, getFullFaceDescription } from '../faceapi.js';
 
-const WIDTH = window.innerWidth;
-const HEIGHT = window.innerHeight;
+const WIDTH = 600;
+//const WIDTH = window.innerWidth;
+//const HEIGHT = window.innerHeight;
+const HEIGHT = 600;
 
 class VideoInput extends Component {
   constructor(props) {
@@ -90,7 +92,7 @@ class VideoInput extends Component {
   startCapture = () => {
     this.interval = setInterval(() => {
       this.capture();
-    }, 4000);
+    }, 2000);
   };
 
   componentWillUnmount() {
@@ -104,7 +106,7 @@ class VideoInput extends Component {
       if (Foto) {
         await getFullFaceDescription(
           this.webcam.current.getScreenshot(),
-          512
+          224
         ).then((fullDesc) => {
           if (!!fullDesc) {
             this.setState({
@@ -144,7 +146,7 @@ class VideoInput extends Component {
       );
       //console.log(EntrdaIndex);
       if (!EntrdaIndex) {
-        this.props.firebase.alunos().child('entradas/').push({
+        this.props.firebase.pessoas().child('entradas/').push({
           name: nome,
         });
         toast.success(`${nome} sua entrada registrada.`, {
@@ -156,7 +158,7 @@ class VideoInput extends Component {
         });
       }
     } else {
-      this.props.firebase.alunos().child('entradas/').push({
+      this.props.firebase.pessoas().child('entradas/').push({
         name: nome,
       });
       toast.success(`${nome} sua entrada registrada.`, {
@@ -198,29 +200,29 @@ class VideoInput extends Component {
     let drawBox = null;
     if (!!detections) {
       drawBox = detections.map((detection, i) => {
-        let _H = detection.box.height;
+        let _H = detection.box.height+30;
         let _W = detection.box.width;
         let _X = detection.box._x;
-        let _Y = detection.box._y;
+        let _Y = detection.box._y+30;
         return (
           <div key={i}>
             <div
               style={{
                 position: 'absolute',
-                border: `10px solid ${this.VerifcaVerde()}`,
+                border: `10px dashed ${this.VerifcaVerde()}`,
 
                 height: _H,
                 width: _W,
                 transform: `translate(${_X}px,${_Y}px)`,
                 zIndex: 9999999,
-                marginTop: '-130px',
+                marginTop: '-70px',
               }}
             >
               {!!match && !!match[i] ? (
                 <p
                   style={{
                     backgroundColor: this.VerifcaVerde(),
-                    border: 'solid',
+                    border: 'dashed',
                     borderColor: this.VerifcaVerde(),
                     width: _W,
                     marginTop: 0,

@@ -11,8 +11,8 @@ import * as faceapi from 'face-api.js';
 import { loadModels, getFullFaceDescription } from '../../faceapi.js';
 
 const videoConstraints2 = {
-  width: 700,
-  height: 700,
+  width: 600,
+  height: 600,
   facingMode: 'user',
 };
 
@@ -80,7 +80,7 @@ class VideoInput extends Component {
       if (Foto) {
         await getFullFaceDescription(
           this.webcam.current.getScreenshot(),
-          512
+          224
         ).then((fullDesc) => {
           if (!!fullDesc) {
             this.setState({
@@ -131,9 +131,16 @@ class VideoInput extends Component {
           toast.error('Preencha um nome', {
             position: toast.POSITION.TOP_LEFT,
           });
-        } else {
+        }
+        else if (this.state.descriptors === '') {
+          toast.error('Face não reconhecida', {
+            position: toast.POSITION.TOP_LEFT,
+          });
+        }
+        else {
+
           this.props.firebase.pessoas().child('alunos/').push({
-            name: this.state.nomealuno,
+            name: this.state.nomepessoa,
             descriptors: this.state.descriptors,
           });
 
@@ -169,10 +176,10 @@ class VideoInput extends Component {
     let drawBox = null;
     if (!!detections) {
       drawBox = detections.map((detection, i) => {
-        let _H = detection.box.height;
+        let _H = detection.box.height+20;
         let _W = detection.box.width;
         let _X = detection.box._x;
-        let _Y = detection.box._y;
+        let _Y = detection.box._y+20;
         return (
           <div key={i}>
             <div

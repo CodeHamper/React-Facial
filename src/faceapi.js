@@ -10,7 +10,7 @@ export async function loadModels() {
     await faceapi.loadFaceRecognitionModel(MODEL_URL);
 }
 
-export async function getFullFaceDescription(blob, inputSize = 512) {
+export async function getFullFaceDescription(blob, inputSize = 224) {
     // tiny_face_detector options
     let scoreThreshold = 0.5;
     const OPTION = new faceapi.TinyFaceDetectorOptions({
